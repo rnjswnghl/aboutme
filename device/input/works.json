@@ -15,7 +15,7 @@
     { "no": 12, "name": "BYTE BACK 방어전", "url": "https://github.com/rnjswnghl/choi-bujang-secret-vault", "result": "공개돼 있던 가상 자료실을 지키는 보안 실습(방어전)에 참여했다.", "ability": "자기조절력", "situation": "", "action": "", "outcome": "" }
   ],
   "featured": [
-    { "slot": "10번 · 논문", "title": "미리 주는 화면 신호는 반응을 빠르게 하는가", "url": "files/T10-paper.pdf", "status": "원고 초안 · 결과 절은 데이터 수집 뒤 채움", "repo": "https://github.com/rnjswnghl/reflex-hub" },
-    { "slot": "13번 · 앱", "title": "13번 앱", "url": "", "status": "준비 중 · 예정일 미정", "repo": "" }
+    { "slot": "10번 · 논문", "title": "미리 주는 화면 신호는 반응을 빠르게 하는가", "url": "files/T10-paper.pdf", "linkText": "논문 PDF 열기", "status": "원고 초안 · 결과 절은 데이터 수집 뒤 채움", "repo": "https://github.com/rnjswnghl/reflex-hub" },
+    { "slot": "13번 · 논문을 반영한 앱", "title": "예고 신호 점검기", "url": "signal/", "linkText": "앱 열기", "who": "게임·앱을 만드는 사람이 ‘곧 나온다’ 예고 효과를 넣을지 정할 때, 자기 기기에서 신호 있음·없음을 섞어 재고 10번 논문의 판정 규칙으로 ‘빨라졌다/차이를 확인하지 못했다’를 알려 줍니다.", "status": "공개 · 로그인 없음 · 예시 데이터로 바로 체험", "repo": "https://github.com/rnjswnghl/aboutme/tree/main/site/signal" }
   ]
 }

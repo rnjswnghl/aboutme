@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>예고 신호 점검기 · 미리 주는 화면 신호는 반응을 빠르게 하는가</title>
+<meta name="description" content="게임·앱에 '곧 나온다' 예고 효과를 넣을지 정할 때, 내 기기에서 신호 있음·없음을 섞어 재고 논문의 판정 규칙으로 결과를 알려 주는 앱.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2323262C'/%3E%3Crect x='4' y='4' width='24' height='24' rx='3' fill='none' stroke='%23A9B1C6' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23E9C46A'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#measure">측정으로 건너뛰기</a>
+
+<header class="top">
+  <p class="crumb"><a href="../#featured">권주회 · 대표작</a> <span>/</span> 13번 앱</p>
+  <p class="paper">10번 논문 · <a href="../files/T10-paper.pdf">미리 주는 화면 테두리 신호는 반응을 빠르게 하는가</a></p>
+  <h1>예고 신호 점검기</h1>
+  <p class="who" id="who">게임·앱을 만드는 사람이 ‘곧 나온다’ 예고 효과를 넣을지 정할 때, 이 앱은 자기 기기에서 신호 있음·없음을 섞어 재고 논문의 판정 규칙으로 <b>‘빨라졌다’</b>와 <b>‘차이를 확인하지 못했다’</b> 가운데 하나를 알려 줍니다.</p>
+  <ol class="steps" aria-label="할 일 세 가지">
+    <li><a href="#measure"><b>1</b> 한 판 재기<small>40초, 노란 원이 뜨면 누르기</small></a></li>
+    <li><a href="#verdict"><b>2</b> 판정 읽기<small>테스터 5명부터 판정</small></a></li>
+    <li><a href="#compare"><b>3</b> 신호 바꿔 비교<small>간격·두께를 바꿔 다시</small></a></li>
+  </ol>
+</header>
+
+<main>
+<section class="card" id="measure" aria-labelledby="m-title">
+  <div class="card-head"><span class="no">1</span><h2 id="m-title">한 판 재기</h2></div>
+  <p class="sub">한 판은 14번입니다. 절반은 노란 원이 나오기 직전에 화면 테두리가 잠깐 밝아지고, 절반은 아무 예고가 없습니다. 둘은 무작위로 섞입니다. 원이 안 나오는 함정도 두 번 있습니다.</p>
+
+  <form id="setting-form" class="setting" novalidate>
+    <fieldset>
+      <legend>시험할 신호</legend>
+      <div class="presets" role="group" aria-label="저장된 신호">
+        <span class="lab">저장된 신호</span>
+        <div id="presets"></div>
+      </div>
+      <div class="grid">
+        <label data-name="예고 간격"><span class="lh">예고 간격 <span class="unit">ms</span></span>
+          <input name="leadMs" inputmode="numeric" value="500" aria-describedby="lead-help">
+          <small id="lead-help">신호가 켜진 뒤 원이 나오기까지. 150~1500. 논문 값 500</small>
+        </label>
+        <label data-name="점등 시간"><span class="lh">점등 시간 <span class="unit">ms</span></span>
+          <input name="flashMs" inputmode="numeric" value="100" aria-describedby="flash-help">
+          <small id="flash-help">테두리가 켜져 있는 시간. 30~300, 예고 간격보다 짧게. 논문 값 100</small>
+        </label>
+        <label data-name="테두리 두께"><span class="lh">테두리 두께 <span class="unit">px</span></span>
+          <input name="borderPx" inputmode="numeric" value="10" aria-describedby="border-help">
+          <small id="border-help">2~40. 논문 값 10</small>
+        </label>
+      </div>
+      <label class="tester">테스터 별명
+        <input name="tester" maxlength="20" placeholder="비우면 ‘테스터 1’처럼 붙습니다" autocomplete="off">
+        <small>같은 별명으로 여러 판을 하면 한 사람으로 합쳐 셉니다. 실명 대신 별명을 쓰세요. 기록은 이 브라우저에만 남습니다.</small>
+      </label>
+    </fieldset>
+    <p class="err" id="form-err" role="alert" hidden></p>
+    <div class="row">
+      <button type="submit" class="primary" id="start">이 신호로 한 판 시작</button>
+      <span class="hint">스페이스·엔터나 화면 터치로 누릅니다. 그만두려면 Esc.</span>
+    </div>
+  </form>
+
+  <div class="last" id="last" hidden aria-live="polite"></div>
+</section>
+
+<section class="card" id="verdict" aria-labelledby="v-title">
+  <div class="card-head"><span class="no">2</span><h2 id="v-title">판정 읽기</h2></div>
+  <p class="sub">한 사람 안에서 ‘신호 있음 중앙값 − 없음 중앙값’을 구하고, 그 차이를 테스터들에 걸쳐 판정합니다. 단측 Wilcoxon 부호순위 검정 p &lt; .05 이고 Hodges–Lehmann 추정치가 0보다 작으면 ‘빨라졌다’입니다. 논문이 데이터를 모으기 전에 고정한 규칙과 같습니다.</p>
+  <div class="tabs" id="verdict-tabs" role="tablist" aria-label="신호 선택"></div>
+  <div id="verdict-body"></div>
+</section>
+
+<section class="card" id="compare" aria-labelledby="c-title">
+  <div class="card-head"><span class="no">3</span><h2 id="c-title">신호 바꿔 비교</h2></div>
+  <p class="sub">1번에서 간격이나 두께를 바꾸면 새 신호로 따로 저장됩니다. 같은 사람들이 두 신호를 모두 해 보면 어느 쪽이 실제로 반응을 당기는지 나란히 볼 수 있습니다.</p>
+  <div class="compare" id="compare-body"></div>
+</section>
+
+<section class="card data" aria-labelledby="d-title">
+  <h2 id="d-title">기록 다루기</h2>
+  <p class="sub">여러 기기에서 모은 기록은 내보낸 파일을 한 기기에서 불러오면 합쳐집니다. 처음이라면 예시 데이터로 판정 화면부터 볼 수 있습니다.</p>
+  <div class="row wrap">
+    <button type="button" id="sample">예시 데이터 불러오기</button>
+    <button type="button" id="export">기록 내보내기(JSON)</button>
+    <label class="file">기록 불러오기<input type="file" id="import" accept="application/json,.json"></label>
+    <button type="button" id="clear" class="ghost">모든 기록 지우기</button>
+  </div>
+  <p class="msg" id="data-msg" role="status"></p>
+</section>
+
+<section class="notes" aria-labelledby="n-title">
+  <h2 id="n-title">이 판정이 말하지 않는 것</h2>
+  <ul>
+    <li><b>이유는 모릅니다.</b> 신호는 각성을 높이는 동시에 ‘정확히 몇 ms 뒤에 나온다’는 시간 정보도 줍니다. 이 앱도 논문처럼 둘을 나누지 못합니다(논문 한계 1).</li>
+    <li><b>‘차이를 확인하지 못했다’는 ‘효과가 없다’가 아닙니다.</b> 테스터가 적으면 실제 효과가 있어도 규칙을 충족하지 못합니다. 4명 이하는 모두 빨라져도 p가 .05 아래로 내려갈 수 없습니다.</li>
+    <li><b>절대 ms는 기기마다 다릅니다.</b> 화면·입력 지연이 섞이지만 두 조건에 똑같이 들어가 차이에서는 상쇄됩니다. 다른 기기의 절대값과 비교하지 마세요(논문 한계 4).</li>
+    <li><b>신호에 박자를 맞춰 누를 수 있습니다.</b> 그래서 함정 오반응과 100~150ms 반응을 조건별로 따로 셉니다(논문 한계 3).</li>
+  </ul>
+  <p class="src">판정 코드는 <a href="https://github.com/rnjswnghl/reflex-hub/blob/main/analysis/run_analysis.py">논문 분석 코드</a>의 사전 등록 v3 규칙을 옮겼고, 같은 입력에서 scipy와 같은 값을 내는지 시험했습니다. 앱 소스: <a href="https://github.com/rnjswnghl/aboutme/tree/main/site/signal">github.com/rnjswnghl/aboutme</a></p>
+</section>
+</main>
+
+<div class="stage" id="stage" hidden aria-modal="true" role="dialog" aria-label="측정 화면">
+  <div class="frame" id="frame" data-on="false"></div>
+  <div class="fix" id="fix" data-on="false" aria-hidden="true">+</div>
+  <div class="target" id="target" data-on="false" aria-hidden="true"></div>
+  <p class="feedback" id="feedback" aria-live="assertive"></p>
+  <p class="progress" id="progress"></p>
+  <button type="button" class="exit" id="exit" data-exit>그만두기</button>
+</div>
+
+<script src="stats.js"></script>
+<script src="runner.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

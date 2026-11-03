@@ -61,9 +61,11 @@
   const feat = document.getElementById('featured-list');
   for (const f of data.featured) {
     const box = el('article', 'feat' + (f.url ? '' : ' empty'));
-    box.append(el('p', 'slot', f.slot), el('h3', '', f.title), el('p', 'status', f.status));
+    box.append(el('p', 'slot', f.slot), el('h3', '', f.title));
+    if (f.who) box.append(el('p', 'who', f.who));
+    box.append(el('p', 'status', f.status));
     const acts = el('div', 'acts');
-    if (f.url) { const a = el('a', '', '논문 PDF 열기'); a.href = f.url; acts.append(a); }
+    if (f.url) { const a = el('a', '', f.linkText || '열기'); a.href = f.url; acts.append(a); }
     if (f.repo) { const a = el('a', '', '저장소 보기'); a.href = f.repo; acts.append(a); }
     if (!f.url) acts.append(el('span', '', '완성되면 이 자리에 올립니다.'));
     box.append(acts); feat.append(box);

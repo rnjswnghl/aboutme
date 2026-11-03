@@ -93,6 +93,7 @@ main{padding:0 clamp(1.25rem,6vw,6rem)}
 .feat.empty{border-style:dashed;border-color:var(--ink-2);background:transparent;color:var(--ink-2)}
 .feat .slot{font-size:.88rem;font-weight:600;color:var(--blue)}
 .feat h3{font-family:var(--serif);font-size:1.35rem;line-height:1.4}
+.feat .who{font-size:.98rem;line-height:1.6}
 .feat .status{font-size:.9rem;color:var(--ink-2)}
 .feat .acts{display:flex;gap:1rem;flex-wrap:wrap;margin-top:auto;padding-top:.8rem;font-weight:600}
 
