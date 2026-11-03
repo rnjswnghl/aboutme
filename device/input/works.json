@@ -1,0 +1,21 @@
+{
+  "note": "과제 목록. 번호·이름·주소·한 줄 결과·관련 능력. 새 과제를 끝내면 한 줄을 더하고 장치를 다시 돌립니다.",
+  "works": [
+    { "no": 1, "name": "introme · 나를 소개하는 페이지", "url": "https://intro.rnjswnghl.chatgpt.site/", "result": "프로젝트 6개를 역할·구현·트러블슈팅 형식으로 정리하고 화면 캡처를 과제별 검증 문서로 남겼다.", "ability": "대인관계력", "situation": "처음 보는 동료가 내 일을 짧게 알아볼 자료가 없었다.", "action": "프로젝트마다 기간·인원·담당·트러블슈팅을 같은 틀로 맞추고, 원본 서버를 직접 실행해 캡처를 다시 찍었다.", "outcome": "공개 페이지 한 장에서 6개 프로젝트를 같은 형식으로 비교할 수 있게 됐다." },
+    { "no": 2, "name": "Burn IT · 태워 보내는 웹", "url": "https://burnit.rnjswnghl.chatgpt.site", "result": "기능을 바꿀 때마다 검증 기록과 함께 배포 v14까지 다시 올렸다.", "ability": "자기동기력", "situation": "Canvas 연소 효과와 30초 게임을 혼자 다듬어야 했다.", "action": "바꿀 때마다 검증 기록을 남기고 다시 배포하는 주기를 지켰다.", "outcome": "배포 버전 14까지 이어서 고쳤다." },
+    { "no": 3, "name": "CUT&NOTE · 사진 편집기", "url": "https://cutandnote.rnjswnghl.chatgpt.site", "result": "v13까지 반복 개선하고 매 버전 반응형·저장·복원을 확인했다.", "ability": "자기동기력", "situation": "레이어·실행 취소·자동 저장처럼 깨지기 쉬운 기능이 많았다.", "action": "버전마다 반응형·저장·복원 세 가지를 같은 순서로 확인했다.", "outcome": "v13까지 기능을 늘리면서도 저장·복원이 깨지지 않았다." },
+    { "no": 4, "name": "byeol · 별", "url": "https://byeol.rnjswnghl.chatgpt.site", "result": "필수 조건 35개를 체크리스트로 대조하고 다섯 가지 실패에서도 마지막 정상값을 지키게 했다.", "ability": "자기조절력", "situation": "입력이 끊기거나 잘못 들어오는 실패 경로가 다섯 가지 있었다.", "action": "실패할 때 화면을 비우지 않고 마지막 정상값을 지키도록 설계하고, 조건 35개를 하나씩 대조했다.", "outcome": "미완료 항목을 숨기지 않고 체크리스트에 그대로 남겼다." },
+    { "no": 5, "name": "CUT&NOTE 인수인계 실험", "url": "https://github.com/rnjswnghl/studio", "result": "사용량 제한으로 작업이 끊긴 뒤 인수인계 문서만으로 재개해 고정 검사 10/10을 통과했다.", "ability": "자기조절력", "situation": "작업 도중 사용량 제한으로 흐름이 끊겼다.", "action": "중단 기록과 인수인계 문서를 먼저 읽고, 끊긴 지점부터 다시 이어 갔다.", "outcome": "다음 작업자가 문서만으로 이어받아 고정 검사 10개를 모두 통과했다." },
+    { "no": 6, "name": "SuGang · 학습 다이어리 기획", "url": "https://sugang.rnjswnghl.chatgpt.site", "result": "학습 다이어리 서비스를 기획하고 첫 화면을 배포했다.", "ability": "자기동기력", "situation": "", "action": "", "outcome": "" },
+    { "no": 7, "name": "SuGang · 인증과 계정별 자료", "url": "https://sugang-t07.vercel.app", "result": "6번 기획 위에 로그인과 계정별 자료 분리를 붙여 Vercel로 옮겼다.", "ability": "자기동기력", "situation": "", "action": "", "outcome": "" },
+    { "no": 8, "name": "패스키 비공개 서랍", "url": "https://introme-t08.vercel.app", "result": "비밀번호 없이 패스키로만 여는 영역을 만들고 취소·같은 기기·삭제된 패스키 경로를 화면별로 검증했다.", "ability": "자기조절력", "situation": "패스키는 취소·중복 등록·삭제처럼 실패 경로가 많았다.", "action": "성공 경로보다 실패 경로를 먼저 목록으로 만들고 화면마다 검증했다.", "outcome": "공개 주소에서 실패 경로별 결과를 기록으로 남겼다." },
+    { "no": 9, "name": "storyme · 나를 말하는 에이전트", "url": "https://storyme-t09.vercel.app", "result": "리추얼 53일 기록만 근거로 답하는 에이전트를 만들고, 동료 평가를 받는 페이지를 붙였다.", "ability": "대인관계력", "situation": "내가 본 나와 동료가 본 나가 어디서 겹치는지 몰랐다.", "action": "동료가 말해 준 장점 126줄을 세어 내 기록과 나란히 놓고, 근거 없는 답은 하지 않는 규칙을 세웠다.", "outcome": "강점 셋마다 날짜 있는 장면과 동료의 말이 함께 붙었다." },
+    { "no": 10, "name": "Reflex Hub · 첫 논문", "url": "https://reflex-hub.vercel.app", "result": "시각 경고 신호가 반응시간을 줄이는지 묻는 실험 웹과 사전 등록, 논문 원고를 한 저장소에 묶었다.", "ability": "자기동기력", "situation": "실험·분석·논문을 처음으로 한 흐름에 넣어야 했다.", "action": "가설과 분석을 데이터 수집 전에 사전 등록하고, 수치는 분석 스크립트가 만든 값만 원고에 들어가게 했다.", "outcome": "원고 초안과 재현 패키지를 완성했다. 결과 절은 데이터 수집 뒤 채운다." },
+    { "no": 11, "name": "『위작』 · 3만 자 장편소설", "url": "", "result": "실제 고비 다섯 개를 뼈대로 한 31,516자 미술품 위작 추리 소설을 책 뷰어와 함께 썼다.", "ability": "자기동기력", "situation": "", "action": "", "outcome": "" },
+    { "no": 12, "name": "BYTE BACK 방어전", "url": "https://github.com/rnjswnghl/choi-bujang-secret-vault", "result": "공개돼 있던 가상 자료실을 지키는 보안 실습(방어전)에 참여했다.", "ability": "자기조절력", "situation": "", "action": "", "outcome": "" }
+  ],
+  "featured": [
+    { "slot": "10번 · 논문", "title": "미리 주는 화면 신호는 반응을 빠르게 하는가", "url": "files/T10-paper.pdf", "status": "원고 초안 · 결과 절은 데이터 수집 뒤 채움", "repo": "https://github.com/rnjswnghl/reflex-hub" },
+    { "slot": "13번 · 앱", "title": "13번 앱", "url": "", "status": "준비 중 · 예정일 미정", "repo": "" }
+  ]
+}
