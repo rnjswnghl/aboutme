@@ -1,0 +1,119 @@
+/* 색: 돌빛 종이, 먹, 소설 표지에서 가져온 Gray Blue 하나, 금색은 8월 14일 한 칸에만 */
+:root{
+  --paper:#F2F3EF;
+  --paper-2:#E7E9E3;
+  --ink:#23262C;
+  --ink-2:#555A63;
+  --line:#CDD0C8;
+  --blue:#4D587A;
+  --blue-soft:#A9B1C6;
+  --gold:#C49A4A;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --serif:"Noto Serif KR","Nanum Myeongjo","AppleMyungjo",serif;
+  --measure:36rem;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;word-break:keep-all;overflow-wrap:break-word}
+a{color:var(--blue);text-underline-offset:.2em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:.5rem 1rem}
+.skip:focus{left:1rem;top:1rem;z-index:10}
+
+/* ---------- 첫 화면 ---------- */
+.hero{min-height:92vh;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(2rem,6vw,6rem);align-items:center;padding:clamp(2.5rem,7vw,6rem) clamp(1.25rem,6vw,6rem);max-width:84rem;margin:0 auto}
+.name{font-size:1.05rem;font-weight:700;letter-spacing:.01em}
+.name span{font-weight:400;color:var(--ink-2);margin-left:.6em}
+h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.1rem,4.6vw,3.7rem);line-height:1.22;letter-spacing:-.02em;margin:1.1rem 0 1.4rem;max-width:14em}
+.lede{color:var(--ink-2);max-width:31rem;font-size:1.02rem}
+.doors{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem}
+.doors a{display:inline-block;padding:.62rem 1.05rem;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem;border-radius:999px;transition:background .15s,color .15s}
+.doors a:first-child{background:var(--ink);color:var(--paper)}
+.doors a:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+
+.ledger{justify-self:center;width:min(100%,25rem)}
+.ledger-grid{display:grid;grid-template-columns:repeat(var(--weeks,13),1fr);grid-auto-flow:column;grid-template-rows:repeat(5,1fr);gap:6px}
+.cell{aspect-ratio:1;border-radius:3px;background:var(--paper-2);border:1px solid var(--line)}
+.cell.done{background:var(--blue);border-color:var(--blue)}
+.cell.open{background:var(--blue-soft);border-color:var(--blue-soft)}
+.cell.miss{background:var(--gold);border-color:var(--gold);position:relative}
+.cell.miss::after{content:"";position:absolute;inset:-5px;border:1px solid var(--gold);border-radius:5px}
+.cell{opacity:0;transform:scale(.6);animation:in .5s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.ledger-axis{display:flex;justify-content:space-between;font-size:.78rem;color:var(--ink-2);margin-top:.6rem}
+.ledger figcaption{font-size:.86rem;color:var(--ink-2);margin-top:1rem;line-height:1.55}
+
+/* ---------- 본편 ---------- */
+main{padding:0 clamp(1.25rem,6vw,6rem)}
+.story{max-width:var(--measure);margin:0 auto;padding:clamp(3rem,8vw,6rem) 0 3rem;border-top:1px solid var(--line)}
+.story h2,.block h2{font-family:var(--serif);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.3;letter-spacing:-.015em}
+.story h2{margin-bottom:2.6rem}
+.scene{position:relative;padding-left:1.6rem;border-left:2px solid var(--line);padding-bottom:2.2rem}
+.scene::before{content:"";position:absolute;left:-7px;top:.45rem;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--ink-2)}
+.scene.rise::before{background:var(--blue);border-color:var(--blue)}
+.scene:last-of-type{border-left-color:transparent}
+.when{font-weight:700;font-size:.95rem;margin-bottom:.55rem}
+.when time{color:var(--blue);margin-right:.5em}
+.scene p:not(.when){font-family:var(--serif);font-size:1.07rem;line-height:1.95}
+.scene p + p:not(.when){margin-top:1rem}
+
+.adapt{margin-top:1rem;border:1px solid var(--line);border-radius:10px;background:#F7F8F5}
+.adapt summary{cursor:pointer;padding:1rem 1.2rem;font-weight:600}
+.adapt table{width:100%;border-collapse:collapse;font-size:.92rem}
+.adapt th,.adapt td{text-align:left;vertical-align:top;padding:.65rem 1.2rem;border-top:1px solid var(--line)}
+.adapt th{color:var(--ink-2);font-weight:600}
+.adapt td:first-child{color:var(--ink-2);width:42%}
+
+/* ---------- 블록 공통 ---------- */
+.block{max-width:64rem;margin:0 auto;padding:clamp(3rem,7vw,5rem) 0;border-top:1px solid var(--line)}
+.sub{color:var(--ink-2);margin-top:.6rem;max-width:40rem}
+
+.figures{display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:0;margin-top:2rem;border-top:1px solid var(--ink)}
+.fig{padding:1.1rem 1rem 1.2rem 0;border-bottom:1px solid var(--line)}
+.fig dt{font-size:.92rem;color:var(--ink-2)}
+.fig dd.v{font-family:var(--serif);font-weight:800;font-size:2rem;line-height:1.2;margin:.25rem 0}
+.fig dd.v small{font-family:var(--sans);font-weight:500;font-size:.9rem;margin-left:.2em;color:var(--ink-2)}
+.fig dd.how{font-size:.8rem;color:var(--ink-2);line-height:1.5}
+.fig.key dd.v{color:var(--gold)}
+.pair{margin-top:1.6rem;padding:1.1rem 1.3rem;background:var(--ink);color:var(--paper);border-radius:10px;max-width:40rem;font-size:.98rem}
+.pair a{color:#D9C08A}
+
+.abilities{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.2rem,3vw,2.4rem);margin-top:2.2rem}
+.ability h3{font-family:var(--serif);font-size:1.3rem;font-weight:800;padding-bottom:.6rem;border-bottom:2px solid var(--blue)}
+.anchor{font-size:.92rem;color:var(--ink-2);margin:.9rem 0 1rem}
+.lines{list-style:none;display:grid;gap:.85rem}
+.lines li{font-family:var(--serif);font-size:.96rem;line-height:1.75}
+.lines .d{display:block;font-family:var(--sans);font-size:.8rem;font-weight:600;color:var(--blue)}
+.lines .by{font-family:var(--sans);font-size:.76rem;color:var(--ink-2);margin-left:.4em;font-weight:400}
+
+.featured{display:grid;grid-template-columns:1.4fr 1fr;gap:1.2rem;margin-top:2rem}
+.feat{border:1px solid var(--ink);border-radius:14px;padding:1.6rem 1.6rem 1.5rem;display:flex;flex-direction:column;gap:.5rem;background:#fff}
+.feat.empty{border-style:dashed;border-color:var(--ink-2);background:transparent;color:var(--ink-2)}
+.feat .slot{font-size:.88rem;font-weight:600;color:var(--blue)}
+.feat h3{font-family:var(--serif);font-size:1.35rem;line-height:1.4}
+.feat .status{font-size:.9rem;color:var(--ink-2)}
+.feat .acts{display:flex;gap:1rem;flex-wrap:wrap;margin-top:auto;padding-top:.8rem;font-weight:600}
+
+.works{list-style:none;margin-top:1.6rem;counter-reset:w}
+.works li{display:grid;grid-template-columns:3rem minmax(0,15rem) minmax(0,1fr);gap:1rem;padding:.95rem 0;border-bottom:1px solid var(--line);align-items:baseline}
+.works .no{font-family:var(--serif);font-weight:800;color:var(--ink-2)}
+.works .nm{font-weight:600}
+.works .rs{color:var(--ink-2);font-size:.94rem}
+
+.docs{list-style:none;display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.docs a{display:inline-block;padding:.9rem 1.3rem;border:1px solid var(--ink);border-radius:10px;text-decoration:none;color:var(--ink);font-weight:600;background:#fff}
+.docs a::after{content:" .docx";font-weight:400;color:var(--ink-2);font-size:.85em}
+.docs a:hover{border-color:var(--blue);color:var(--blue)}
+
+.foot{max-width:64rem;margin:0 auto;padding:3rem clamp(1.25rem,6vw,0px) 4rem;border-top:1px solid var(--line);color:var(--ink-2);font-size:.92rem}
+.basis{margin-top:.4rem;font-size:.82rem}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .ledger{justify-self:start}
+  .abilities,.featured{grid-template-columns:1fr}
+  .works li{grid-template-columns:2.2rem minmax(0,1fr)}
+  .works .rs{grid-column:2}
+}
